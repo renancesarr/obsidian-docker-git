@@ -1,7 +1,10 @@
 FROM alpine:latest
 
-# Instalar dependências básicas
-RUN apk update && apk add --no-cache \
+# Atualizar repositórios
+RUN apk update
+
+# Instalar dependências básicas e libc6-compat
+RUN apk add --no-cache \
     wget \
     libstdc++ \
     libx11 \
@@ -10,11 +13,16 @@ RUN apk update && apk add --no-cache \
     nss \
     alsa-lib \
     libnotify \
-    libxss \
     xdg-utils \
     git \
     inotify-tools \
-    fuse
+    fuse \
+    libc6-compat
+
+# Baixar e instalar libxss de uma fonte compatível
+RUN wget http://ftp.us.debian.org/debian/pool/main/libx/libxscrnsaver/libxss1_1.2.3-1_amd64.deb -O /tmp/libxss1.deb && \
+    dpkg -i /tmp/libxss1.deb && \
+    rm /tmp/libxss1.deb
 
 # Baixar o Obsidian AppImage
 RUN wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.0.3/Obsidian-1.0.3.AppImage -O /usr/local/bin/Obsidian.AppImage
