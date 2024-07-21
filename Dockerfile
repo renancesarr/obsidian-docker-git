@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-# Instalar dependências
+# Instalar dependências básicas
 RUN apk add --no-cache \
     wget \
     libstdc++ \
@@ -14,15 +14,13 @@ RUN apk add --no-cache \
     xdg-utils \
     git \
     inotify-tools \
-    && apk add --no-cache --virtual .build-deps \
-    dpkg \
-    && wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.0.3/obsidian_1.0.3_amd64.deb \
-    && dpkg -i obsidian_1.0.3_amd64.deb \
-    && apk del .build-deps \
-    && rm obsidian_1.0.3_amd64.deb
+    fuse
 
-# Instalar Rclone
-RUN apk add --no-cache rclone
+# Baixar o Obsidian AppImage
+RUN wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/Obsidian-1.6.7.AppImage -O /usr/local/bin/Obsidian.AppImage
+
+# Tornar o AppImage executável
+RUN chmod +x /usr/local/bin/Obsidian.AppImage
 
 # Copiar scripts e arquivos de configuração
 COPY auto-commit.sh /usr/local/bin/auto-commit.sh
