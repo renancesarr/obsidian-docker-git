@@ -25,8 +25,8 @@ RUN apk add --no-cache \
 RUN apk add --no-cache rclone
 
 # Copiar scripts e arquivos de configuração
-COPY auto_commit.sh /usr/local/bin/auto_commit.sh
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY ./auto_commit.sh /usr/local/bin/auto_commit.sh
+COPY ./entrypoint.sh /usr/local/bin/entrypoint.sh
 COPY .env /root/.env
 
 # Adicionar chave SSH
