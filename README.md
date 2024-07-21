@@ -86,4 +86,4 @@ obsidian
 | Monitoramento e Alertas              | Monitoramento e alertas para notificar o sobre  problemas críticos.  | **Alta**   |
 | **Criptografia de Notas**            | **Implementar segurança para criptografar as notas no contêiner.**   | **Alta**   |
 | Melhoria de Desempenho               | Otimizar o contêiner e os scripts para melhorar o desempenho geral   | Médio      |
-| Captura Automática de Notas           |  Usar integrações para capturar informações de diferentes fontes    | Médio      |
+| Captura Automática de Notas          |  Usar integrações para capturar informações de diferentes fontes    | Médio      |
