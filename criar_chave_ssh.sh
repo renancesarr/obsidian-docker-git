@@ -28,3 +28,15 @@ fi
 echo "Chave SSH criada com sucesso!"
 echo "A chave pública é:"
 cat ~/.ssh/obsidian-ssh/id_rsa.pub
+
+#configurar ssh
+# Adiciona a configuração ao arquivo ~/.ssh/config
+cat <<EOL >> ~/.ssh/config
+
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/obsidian-ssh/id_rsa
+
+# Define permissões corretas para o arquivo config
+chmod 600 ~/.ssh/config
