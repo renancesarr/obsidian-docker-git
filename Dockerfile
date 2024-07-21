@@ -25,16 +25,16 @@ RUN apk add --no-cache \
 RUN apk add --no-cache rclone
 
 # Copiar scripts e arquivos de configuração
-COPY ./auto_commit.sh /usr/local/bin/auto_commit.sh
-COPY ./entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY auto_commit.sh /usr/local/bin/auto_commit.sh
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY criar_chave_ssh.sh /usr/local/bin/criar_chave_ssh.sh
 COPY .env /root/.env
 
-# Adicionar chave SSH
-COPY ~/.ssh/obsidian-git/id_rsa /root/.ssh/id_rsa
-RUN chmod 600 /root/.ssh/id_rsa
-
 # Tornar os scripts executáveis
-RUN chmod +x /usr/local/bin/auto_commit.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/auto_commit.sh /usr/local/bin/entrypoint.sh /usr/local/bin/criar_chave_ssh.sh
+
+# Executar o script criar_chave_ssh.sh
+RUN /usr/local/bin/criar_chave_ssh.sh seuemail@example.com
 
 # Definir o diretório de trabalho
 WORKDIR /root/Obsidian
