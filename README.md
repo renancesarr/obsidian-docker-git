@@ -86,5 +86,4 @@ obsidian
 | Monitoramento e Alertas              | Monitoramento e alertas para notificar o sobre  problemas críticos.  | **Alta**   |
 | **Criptografia de Notas**            | **Implementar segurança para criptografar as notas no contêiner.**   | **Alta**   |
 | Melhoria de Desempenho               | Otimizar o contêiner e os scripts para melhorar o desempenho geral   | Médio      |
-| **Integração de Notas com Fluxos de Trabalho e Automação** | **Integre o contêiner do Obsidian com plataformas de automação e fluxos de trabalho, como Zapier, IFTTT e n8n, para criar um sistema de notas que não apenas armazena informações, mas também interage dinamicamente com outras ferramentas e serviços. Isso permitirá automatizar a captura, organização e utilização de informações de maneira mais eficiente e conectada ao seu ecossistema de produtividade.** | **Alta**   |
 | Captura Automática de Notas           |  Usar integrações para capturar informações de diferentes fontes    | Médio      |
