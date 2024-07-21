@@ -30,13 +30,13 @@ Este projeto visa fornecer um ambiente isolado e seguro para usar o [Obsidian](h
 
 2. **Chave SSH**
 
-    ####**Torne o script criar_chave_ssh.sh executável:**
+    - **Torne o script criar_chave_ssh.sh executável:**
 
     ```sh
     chmod +x criar_chave_ssh.sh
     ```
 
-    ####**Execute o script fornecendo seu email como parâmetro:**
+    - **Execute o script fornecendo seu email como parâmetro:**
 
     ```sh
     ./criar_chave_ssh.sh seuemail@example.com
@@ -60,13 +60,13 @@ Este projeto visa fornecer um ambiente isolado e seguro para usar o [Obsidian](h
 
 5. **Script de Facilitação**
 
-    ####**Tornar o script executável**
+    - **Tornar o script executável**
 
     ```sh
     chmod +x obsidian.sh
     ```
 
-    ####**Execute o script**
+    - **Execute o script**
 
     ```sh
     sudo ./obsidian.sh
