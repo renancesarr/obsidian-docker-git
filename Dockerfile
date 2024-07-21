@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 # Instalar dependências básicas
-RUN apk add --no-cache \
+RUN apk update && apk add --no-cache \
     wget \
     libstdc++ \
     libx11 \
@@ -17,7 +17,7 @@ RUN apk add --no-cache \
     fuse
 
 # Baixar o Obsidian AppImage
-RUN wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/Obsidian-1.6.7.AppImage -O /usr/local/bin/Obsidian.AppImage
+RUN wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.0.3/Obsidian-1.0.3.AppImage -O /usr/local/bin/Obsidian.AppImage
 
 # Tornar o AppImage executável
 RUN chmod +x /usr/local/bin/Obsidian.AppImage
