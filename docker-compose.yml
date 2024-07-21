@@ -1,0 +1,11 @@
+version: '3'
+services:
+  obsidian:
+    build: .
+    container_name: obsidian-alpine-container
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /home/seuusuario/Obsidian:/root/Obsidian
+    entrypoint: /usr/local/bin/entrypoint.sh
