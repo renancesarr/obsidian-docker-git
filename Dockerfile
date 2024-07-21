@@ -15,7 +15,7 @@ RUN apk update && apk add --no-cache \
     git \
     inotify-tools \
     fuse \
-    libxscrnsaver
+    openssh
 
 # Baixar o Obsidian AppImage
 RUN wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.0.3/Obsidian-1.0.3.AppImage -O /usr/local/bin/Obsidian.AppImage
