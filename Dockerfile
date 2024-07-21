@@ -10,7 +10,7 @@ RUN apk update && apk add --no-cache \
     nss \
     alsa-lib \
     libnotify \
-    libxss \
+    libxscrnsaver \
     xdg-utils \
     git \
     inotify-tools \
