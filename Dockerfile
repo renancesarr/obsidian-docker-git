@@ -30,7 +30,7 @@ COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 COPY .env /root/.env
 
 # Adicionar chave SSH
-COPY ssh/obsidian-git/id_rsa /root/.ssh/id_rsa
+COPY ~/.ssh/obsidian-git/id_rsa /root/.ssh/id_rsa
 RUN chmod 600 /root/.ssh/id_rsa
 
 # Tornar os scripts executáveis
