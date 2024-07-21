@@ -1,20 +1,28 @@
 #!/bin/sh
-# Carregar variáveis do .env
-. /root/.env
 
-# Configurar Git
-git config --global user.name "$GIT_USER_NAME"
-git config --global user.email "$GIT_USER_EMAIL"
+# Verifique se o usuário forneceu um email como parâmetro
+if [ -z "$1" ]; then
+  echo "Uso: $0 seuemail@example.com"
+  exit 1
+fi
 
-# Adicionar chave SSH
-eval $(ssh-agent -s)
-ssh-add /root/.ssh/id_rsa
+EMAIL=$1
 
-# Clonar o repositório
-git clone "$GIT_REPO" /root/Obsidian || (cd /root/Obsidian && git pull)
+# Solicita a senha para proteger a chave SSH
+echo "Digite a senha para a chave SSH (ou pressione Enter para nenhuma senha):"
+read -s PASSPHRASE
 
-# Iniciar o script de auto commit em segundo plano
-nohup /usr/local/bin/auto_commit.sh &
+# Cria o diretório ~/.ssh/obsidian-ssh se não existir
+mkdir -p ~/.ssh/obsidian-ssh
 
-# Iniciar o Obsidian
-obsidian
+# Gera a chave SSH e salva diretamente no diretório ~/.ssh/obsidian-ssh
+if [ -z "$PASSPHRASE" ]; then
+  ssh-keygen -t rsa -b 4096 -C "$EMAIL" -f ~/.ssh/obsidian-ssh/id_rsa -N ""
+else
+  ssh-keygen -t rsa -b 4096 -C "$EMAIL" -f ~/.ssh/obsidian-ssh/id_rsa -N "$PASSPHRASE"
+fi
+
+# Mostra a chave pública para o usuário
+echo "Chave SSH criada com sucesso!"
+echo "A chave pública é:"
+cat ~/.ssh/obsidian-ssh/id_rsa.pub
